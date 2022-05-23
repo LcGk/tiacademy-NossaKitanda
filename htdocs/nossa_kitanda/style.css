@@ -33,9 +33,9 @@ html {
     --background3: #525252;
     --text: #fff;
 
-    --shade1: #9ac441;
-    --shade2: #0092a4;
-    --shade3: #03324f;
+    --green: #9ac441;
+    --blue: #0092a4;
+    --red: #c4414a;
 }
 
 body {
@@ -54,12 +54,12 @@ body > header {
     font-size: 1.5rem;
     font-weight: 600;
 
-    background: var(--shade2);
+    background: var(--blue);
 
     display: flex;
 }
 
-body > header > #header_total {
+body > header > #total-header {
     margin-left: auto;
 }
 
@@ -70,7 +70,7 @@ main {
     display: flex;
 }
 
-#products {
+#products-container {
     flex: 1;
     padding: .8rem;
 
@@ -80,13 +80,13 @@ main {
     flex-direction: column;
 }
 
-#products > header {
+#products-container > header {
     padding: .4rem;
     width: 100%;
 
     font-size: 1.2rem;
 
-    background: var(--shade1);
+    background: var(--green);
 }
 
 #products > li {
@@ -94,6 +94,8 @@ main {
     padding: .5rem;
 
     background: var(--background2);
+
+    display: flex;
 }
 
 #products > li:hover {
@@ -101,11 +103,90 @@ main {
     cursor: pointer;
 }
 
-/* Nome do produto */
-#products > li:nth-child(1) { 
+#products > li::after {
+    content: '+';
+
+    margin-left: .5rem;
     
+    width: 1rem;
+    height: 1rem;
+
+    font-weight: 900;
+    text-align: center;
+
+    background: var(--green);
+    border-radius: 50%;
 }
 
-#cart {
+/* Preço do produto */
+#products > li > span:nth-child(2) { 
+    margin-left: auto;
+
+    color: #ccc;
+}
+
+#cart-container {
     flex: 1;
+    padding: .8rem;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#cart-container > header {
+    padding: .4rem;
+    width: 100%;
+
+    font-size: 1.2rem;
+
+    background: var(--green);
+}
+
+#cart-container > #total-price {
+    margin-top: .25rem;
+    padding: .4rem;
+    width: 100%;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    background: var(--green);
+}
+
+#cart > li {
+    margin-top: .25rem;
+    padding: .5rem;
+
+    background: var(--background2);
+
+    display: flex;
+}
+
+#cart > li:hover {
+    background: var(--background3);
+    cursor: pointer;
+}
+
+#cart > li::after {
+    content: '-';
+
+    margin-left: .5rem;
+    
+    width: 1rem;
+    height: 1rem;
+
+    font-weight: 900;
+    text-align: center;
+
+    background: var(--red);
+    border-radius: 50%;
+}
+
+/* Preço do produto */
+#cart > li > span:nth-child(2) { 
+    margin-left: auto;
+
+    color: #ccc;
 }
